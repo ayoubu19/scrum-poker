@@ -1,0 +1,83 @@
+<form nz-form [formGroup]="validateForm" class="login-form">
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input your username!">
+      <nz-input-group
+        nzPrefixIcon="user"
+        nzSize="large"
+        [nzSuffix]="suffixTemplateInfo"
+      >
+        <input
+          type="text"
+          nz-input
+          formControlName="userName"
+          placeholder="Username"
+        />
+      </nz-input-group>
+      <ng-template #suffixTemplateInfo
+        ><i
+          nz-icon
+          nz-tooltip
+          nzTooltipTitle="* Required"
+          nzType="info-circle"
+        ></i
+      ></ng-template>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input the room title!">
+      <nz-input-group
+        nzPrefixIcon="home"
+        nzSize="large"
+        [nzSuffix]="suffixTemplateInfo"
+      >
+        <input
+          type="text"
+          nz-input
+          formControlName="roomTitle"
+          placeholder="Room title"
+        />
+      </nz-input-group>
+      <ng-template #suffixTemplateInfo
+        ><i
+          nz-icon
+          nz-tooltip
+          nzTooltipTitle="* Required"
+          nzType="info-circle"
+        ></i
+      ></ng-template>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control>
+      <nz-select formControlName="mode" nzSize="large">
+        <nz-option
+          *ngFor="let option of listOfOption"
+          [nzLabel]="option.label"
+          [nzValue]="option.value"
+        ></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <button
+    nz-button
+    class="create-room-button"
+    [nzType]="'primary'"
+    nzSize="large"
+    (click)="submitForm()"
+  >
+    Create a room
+  </button>
+
+  <nz-divider nzText="Or"></nz-divider>
+
+  <button
+    nz-button
+    class="join-room-button"
+    nzSize="large"
+    routerLink="/join-room"
+  >
+    Join a room
+  </button>
+</form>

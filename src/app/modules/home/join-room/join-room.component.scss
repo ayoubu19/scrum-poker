@@ -1,0 +1,32 @@
+.create-room-button {
+  width: 80%;
+  box-shadow: 6px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #c746a5;
+  background-color: white;
+  font-weight: bold;
+}
+
+.join-room-button {
+  width: 80%;
+  box-shadow: 6px 4px 4px rgba(0, 0, 0, 0.25);
+  border: #c746a5;
+  color: white;
+  font-weight: bold;
+  background-color: #c746a5;
+}
+
+nz-input-group {
+  border: 1px solid #f009b3;
+}
+
+nz-form-item {
+  width: 80%;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

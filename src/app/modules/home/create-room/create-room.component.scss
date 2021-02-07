@@ -1,0 +1,55 @@
+.create-room-button {
+  width: 80%;
+  box-shadow: 6px 4px 4px rgba(0, 0, 0, 0.25);
+  border: #c746a5;
+  color: white;
+  font-weight: bold;
+}
+
+.join-room-button {
+  width: 80%;
+  box-shadow: 6px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #c746a5;
+  background-color: white;
+  font-weight: bold;
+}
+
+nz-input-group {
+  border: 1px solid #f009b3;
+}
+
+nz-select {
+  color: #f009b3;
+  border: 1px solid #f009b3;
+}
+
+::ng-deep
+  .ant-select-single.ant-select-lg:not(.ant-select-customize-input)
+  .ant-select-selector {
+  height: 50px;
+  align-items: center;
+}
+
+::ng-deep .ant-select-arrow .anticon > svg {
+  color: #f009b3;
+}
+
+::ng-deep .ant-divider-horizontal {
+  width: 80%;
+  min-width: 80%;
+}
+
+.ant-select-arrow .anticon > svg {
+  color: red !important;
+}
+nz-form-item {
+  width: 80%;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
