@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: 'AIzaSyDL9cxCe8WyoJQM8-8GG-uMgWUKINb41Wo',
+    authDomain: 'scrum-poker-93ef6.firebaseapp.com',
+    databaseURL: 'https://scrum-poker-93ef6-default-rtdb.firebaseio.com',
+    projectId: 'scrum-poker-93ef6',
+    storageBucket: 'scrum-poker-93ef6.appspot.com',
+    messagingSenderId: '111751035007',
+    appId: '1:111751035007:web:ecd205ca91cdf01529e74a',
+    measurementId: 'G-Q6BSE9YD2B',
+  },
 };
 
 /*
