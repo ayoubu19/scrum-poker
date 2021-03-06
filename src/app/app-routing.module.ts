@@ -18,7 +18,7 @@ const routes: Routes = [
         component: CreateRoomComponent,
       },
       {
-        path: 'join-room',
+        path: ':id/join-room',
         component: JoinRoomComponent,
       },
     ],

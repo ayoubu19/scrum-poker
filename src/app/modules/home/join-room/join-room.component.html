@@ -23,30 +23,6 @@
       ></ng-template>
     </nz-form-control>
   </nz-form-item>
-  <nz-form-item>
-    <nz-form-control nzErrorTip="Please input the room id!">
-      <nz-input-group
-        nzPrefixIcon="home"
-        nzSize="large"
-        [nzSuffix]="suffixTemplateInfo"
-      >
-        <input
-          type="text"
-          nz-input
-          formControlName="roomId"
-          placeholder="Room ID"
-        />
-      </nz-input-group>
-      <ng-template #suffixTemplateInfo
-        ><i
-          nz-icon
-          nz-tooltip
-          nzTooltipTitle="* Required"
-          nzType="info-circle"
-        ></i
-      ></ng-template>
-    </nz-form-control>
-  </nz-form-item>
 
   <button
     nz-button
@@ -55,17 +31,5 @@
     (click)="submitForm()"
   >
     Join a room
-  </button>
-
-  <nz-divider nzText="Or"></nz-divider>
-
-  <button
-    nz-button
-    class="create-room-button"
-    [nzType]="'primary'"
-    nzSize="large"
-    routerLink="/create-room"
-  >
-    Create a room
   </button>
 </form>

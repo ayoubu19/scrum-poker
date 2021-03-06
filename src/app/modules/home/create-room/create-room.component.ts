@@ -14,33 +14,35 @@ export class CreateRoomComponent implements OnInit {
       value: 'Fibbonacci',
     },
     {
-      label: 'Normal (0,1,2,3,4, ... )',
+      label: 'Normal (0,1,2,3,4, ... ) (coming soon)',
       value: 'Normal',
     },
-    {
-      label: 'Normal (0,1,2,3,4, ... )',
-      value: 'Normal2',
-    },
-    {
-      label: 'Normal (0,1,2,3,4, ... )',
-      value: 'Normal3',
-    },
   ];
+
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.setUpForm();
+  }
+
+  setUpForm(): void {
+    this.validateForm = this.fb.group({
+      hostName: [null, [Validators.required]],
+      roomTitle: [null, [Validators.required]],
+      mode: [this.listOfOption[0].value],
+    });
+  }
 
   submitForm(): void {
     for (const i in this.validateForm.controls) {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
-  }
 
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit(): void {
-    this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
-      roomTitle: [null, [Validators.required]],
-      mode: [this.listOfOption[0].value],
-    });
+    if (this.validateForm.status === 'VALID') {
+      console.log('valid');
+    } else {
+      console.log('invalid');
+    }
   }
 }

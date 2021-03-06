@@ -9,8 +9,8 @@
         <input
           type="text"
           nz-input
-          formControlName="userName"
-          placeholder="Username"
+          formControlName="hostName"
+          placeholder="Hostname"
         />
       </nz-input-group>
       <ng-template #suffixTemplateInfo
@@ -68,16 +68,5 @@
     (click)="submitForm()"
   >
     Create a room
-  </button>
-
-  <nz-divider nzText="Or"></nz-divider>
-
-  <button
-    nz-button
-    class="join-room-button"
-    nzSize="large"
-    routerLink="/join-room"
-  >
-    Join a room
   </button>
 </form>
