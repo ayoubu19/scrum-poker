@@ -11,6 +11,7 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NzStepsModule } from 'ng-zorro-antd/steps';
 
 const modules = [
   NzButtonModule,
@@ -25,6 +26,7 @@ const modules = [
   NzDividerModule,
   NzGridModule,
   NzToolTipModule,
+  NzStepsModule,
 ];
 
 @NgModule({

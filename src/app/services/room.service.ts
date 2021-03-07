@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import {
+  AngularFireDatabase,
+  AngularFireList,
+  AngularFireObject,
+} from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { from } from 'rxjs';
 
@@ -13,12 +17,16 @@ export class RoomService {
 
   roomsRef: AngularFireList<Room>;
 
-  constructor(db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase) {
     this.roomsRef = db.list(this.dbPath);
   }
 
   getAll(): AngularFireList<Room> {
     return this.roomsRef;
+  }
+
+  getRoomById(roomId: string): AngularFireObject<Room> {
+    return this.db.object(`${this.dbPath}/${roomId}`);
   }
 
   createRoom(room: Room): Observable<any> {

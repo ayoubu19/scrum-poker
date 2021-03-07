@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Room } from 'src/app/models/room';
-import { RoomService } from './services/room.service';
+import { RoomService } from '../../../services/room.service';
 
 @Component({
   selector: 'app-create-room',
@@ -22,11 +23,14 @@ export class CreateRoomComponent implements OnInit {
   ];
   room: Room = {};
 
-  constructor(private fb: FormBuilder, private roomService: RoomService) {}
+  constructor(
+    private fb: FormBuilder,
+    private roomService: RoomService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.setUpForm();
-    //this.getRooms();
   }
 
   setUpForm(): void {
@@ -49,20 +53,10 @@ export class CreateRoomComponent implements OnInit {
       this.room.voteMode = this.validateForm.value.voteMode;
       this.roomService.createRoom(this.room).subscribe((room) => {
         console.log(room.path.pieces_[1]);
+        this.router.navigate(['/room/set-up', room.path.pieces_[1]]);
       });
     } else {
       console.log('invalid');
     }
-  }
-
-  getRooms(): void {
-    this.roomService
-      .getAll()
-      .snapshotChanges()
-      .subscribe((data) => {
-        data.forEach((v) => {
-          console.log(v.payload.val());
-        });
-      });
   }
 }

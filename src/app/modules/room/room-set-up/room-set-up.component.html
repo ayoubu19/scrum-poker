@@ -1,0 +1,17 @@
+<div nz-row>
+  <div nz-col [nzSpan]="10" class="left">
+    <h1 class="greeting">{{ greeting }}</h1>
+  </div>
+  <div nz-col [nzSpan]="14" class="right">
+    <nz-steps
+      [nzCurrent]="currentIndex"
+      nzSize="large"
+      nzType="navigation"
+      (nzIndexChange)="onIndexChange($event)"
+    >
+      <nz-step nzTitle="invite your team "></nz-step>
+      <nz-step nzTitle="specify topics"></nz-step>
+      <nz-step nzTitle="start session"></nz-step>
+    </nz-steps>
+  </div>
+</div>
