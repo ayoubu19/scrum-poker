@@ -1,13 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home.component';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { CreateRoomComponent } from './create-room/create-room.component';
+import { HomeRoutingModule } from './home-routing.module';
+import { HomeComponent } from './home.component';
 import { JoinRoomComponent } from './join-room/join-room.component';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
     CommonModule,
@@ -15,8 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
+    HomeRoutingModule,
   ],
   declarations: [HomeComponent, CreateRoomComponent, JoinRoomComponent],
 })

@@ -1,27 +1,17 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CreateRoomComponent } from './modules/home/create-room/create-room.component';
-import { HomeComponent } from './modules/home/home.component';
-import { JoinRoomComponent } from './modules/home/join-room/join-room.component';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    children: [
-      {
-        path: '',
-        component: CreateRoomComponent,
-      },
-      {
-        path: 'create-room',
-        component: CreateRoomComponent,
-      },
-      {
-        path: ':id/join-room',
-        component: JoinRoomComponent,
-      },
-    ],
+    loadChildren: () =>
+      import('./modules/home/home.module').then((m) => m.HomeModule),
+  },
+
+  {
+    path: 'room',
+    loadChildren: () =>
+      import('./modules/room/room.module').then((m) => m.RoomModule),
   },
 ];
 

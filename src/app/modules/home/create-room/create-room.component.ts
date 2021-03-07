@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Room } from 'src/app/models/room';
+import { RoomService } from './services/room.service';
 
 @Component({
   selector: 'app-create-room',
@@ -18,18 +20,20 @@ export class CreateRoomComponent implements OnInit {
       value: 'Normal',
     },
   ];
+  room: Room = {};
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private roomService: RoomService) {}
 
   ngOnInit(): void {
     this.setUpForm();
+    //this.getRooms();
   }
 
   setUpForm(): void {
     this.validateForm = this.fb.group({
       hostName: [null, [Validators.required]],
       roomTitle: [null, [Validators.required]],
-      mode: [this.listOfOption[0].value],
+      voteMode: [this.listOfOption[0].value],
     });
   }
 
@@ -40,9 +44,25 @@ export class CreateRoomComponent implements OnInit {
     }
 
     if (this.validateForm.status === 'VALID') {
-      console.log('valid');
+      this.room.moderator = this.validateForm.value.hostName;
+      this.room.roomTitle = this.validateForm.value.roomTitle;
+      this.room.voteMode = this.validateForm.value.voteMode;
+      this.roomService.createRoom(this.room).subscribe((room) => {
+        console.log(room.path.pieces_[1]);
+      });
     } else {
       console.log('invalid');
     }
+  }
+
+  getRooms(): void {
+    this.roomService
+      .getAll()
+      .snapshotChanges()
+      .subscribe((data) => {
+        data.forEach((v) => {
+          console.log(v.payload.val());
+        });
+      });
   }
 }
